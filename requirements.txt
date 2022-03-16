@@ -122,6 +122,8 @@ smmap==5.0.0
 soupsieve==2.3.1
 stack-data==0.2.0
 streamlit==1.7.0
+streamlit-book==0.7.0
+streamlit-option-menu==0.3.2
 tabulate==0.8.9
 terminado==0.13.3
 testpath==0.6.0
