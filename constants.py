@@ -1,6 +1,6 @@
 from pathlib import Path
 
-AUTHORS = ["Antoine Toubhans"]
+AUTHOR = "Antoine Toubhans"
 CONFERENCE_NAME = "PyConDE & PyDataBerlin 2022"
 TITLE = (
     "Flexible ML Experiment Tracking System for Python Coders with DVC and Streamlit"

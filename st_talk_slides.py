@@ -4,7 +4,9 @@ import streamlit_book as stb
 from constants import CONFERENCE_LOGO_PATH, CONFERENCE_NAME
 
 # Streamlit webpage properties
-st.set_page_config(page_title=CONFERENCE_NAME, page_icon=str(CONFERENCE_LOGO_PATH))
+st.set_page_config(
+    page_title=CONFERENCE_NAME, page_icon=str(CONFERENCE_LOGO_PATH), layout="wide"
+)
 
 st.sidebar.image(str(CONFERENCE_LOGO_PATH), width=50)
 st.sidebar.write(CONFERENCE_NAME)
