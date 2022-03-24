@@ -1,10 +1,12 @@
+import base64
 from functools import partial
+from pathlib import Path
 from typing import Literal, Optional
 
 import streamlit as st
 from bs4 import BeautifulSoup
 
-TAG = Literal["div", "a", "span"]
+TAG = Literal["div", "a", "span", "img"]
 
 
 class CSSStyle:
@@ -40,5 +42,17 @@ def make_tag(
 make_div = partial(make_tag, name="div")
 
 
-def st_write_bf4(soup: BeautifulSoup):
+def make_img(src: Path, style: Optional[CSSStyle] = None) -> BeautifulSoup:
+    image_bs = make_tag("img", style=style)
+    image_ext = src.suffix[1:]
+
+    with open(src, "rb") as image_file:
+        b64_image = base64.b64encode(image_file.read()).decode("utf-8")
+
+    image_bs["src"] = f"data:image/{image_ext};base64,{b64_image}"
+
+    return image_bs
+
+
+def st_write_bs4(soup: BeautifulSoup):
     st.write(soup.__repr__(), unsafe_allow_html=True)

@@ -1,7 +1,7 @@
 import streamlit as st
 
 from constants import TITLE
-from utils.html_factory import CSSStyle, make_div, st_write_bf4
+from utils.html_factory import CSSStyle, make_div, st_write_bs4
 
 big_title_style = CSSStyle(
     text_align="center",
@@ -11,4 +11,4 @@ big_title_style = CSSStyle(
 )
 big_title = make_div(style=big_title_style, text=TITLE)
 
-st_write_bf4(big_title)
+st_write_bs4(big_title)

@@ -1,9 +1,8 @@
 import streamlit as st
 import streamlit_book as stb
-from bs4 import BeautifulSoup
 
 import constants
-from utils.html_factory import CSSStyle, make_div, st_write_bf4
+from utils.html_factory import CSSStyle, make_div, make_img, st_write_bs4
 
 # Streamlit webpage properties
 st.set_page_config(
@@ -12,40 +11,36 @@ st.set_page_config(
     layout="wide",
 )
 
-sidebar_header = BeautifulSoup()
-sidebar_header.extend(
+# Sidebar Header
+sidebar_header_logo = make_img(
+    src=constants.CONFERENCE_LOGO_PATH,
+    style=CSSStyle(width="64px", flex=1, margin_right="20px"),
+)
+sidebar_header_title = make_div(style=CSSStyle(text_align="left", flex=3))
+sidebar_header_title.extend(
     [
         make_div(
-            style=CSSStyle(
-                text_align="left",
-                font_size="18px",
-                font_weight="bold",
-                margin_top="-10px",
-            ),
+            style=CSSStyle(font_size="18px", font_weight="bold"),
             text=constants.CONFERENCE_NAME,
         ),
         make_div(
-            style=CSSStyle(text_align="left", font_size="14px"),
+            style=CSSStyle(font_size="14px"),
             text=constants.CONFERENCE_DATE,
         ),
         make_div(
-            style=CSSStyle(
-                text_align="left",
-                font_size="14px",
-                font_style="italic",
-                margin_bottom="10px",
-            ),
+            style=CSSStyle(font_size="14px", font_style="italic"),
             text=constants.AUTHOR,
         ),
     ]
 )
+sidebar_header = make_div(
+    style=CSSStyle(margin_top="-40px", margin_bottom="20px", display="flex")
+)
+sidebar_header.extend([sidebar_header_logo, sidebar_header_title])
 
 
-conf_column_logo, conf_column_name = st.sidebar.columns([1, 3])
-with conf_column_logo:
-    st.image(str(constants.CONFERENCE_LOGO_PATH), width=55)
-with conf_column_name:
-    st_write_bf4(sidebar_header)
+with st.sidebar:
+    st_write_bs4(sidebar_header)
 
 
 # Streamlit book properties
