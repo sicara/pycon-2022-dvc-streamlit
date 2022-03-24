@@ -112,6 +112,7 @@ pyparsing==3.0.7
 pyrsistent==0.18.1
 python-benedict==0.25.0
 python-dateutil==2.8.2
+python-dotenv==0.19.2
 python-fsutil==0.6.0
 python-slugify==6.1.1
 pytz==2021.3
@@ -127,11 +128,13 @@ semver==2.13.0
 Send2Trash==1.8.0
 shortuuid==1.0.8
 shtab==1.5.3
+simplejson==3.17.6
 six==1.16.0
 smmap==5.0.0
 soupsieve==2.3.1
 stack-data==0.2.0
 streamlit==1.7.0
+streamlit-aggrid==0.2.3.post2
 streamlit-book==0.7.0
 streamlit-option-menu==0.3.2
 tabulate==0.8.9
