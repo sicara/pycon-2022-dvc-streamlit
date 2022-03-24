@@ -1,7 +1,9 @@
 import streamlit as st
 import streamlit_book as stb
+from bs4 import BeautifulSoup
 
 import constants
+from utils.html_factory import CSSStyle, make_div, st_write_bf4
 
 # Streamlit webpage properties
 st.set_page_config(
@@ -10,24 +12,40 @@ st.set_page_config(
     layout="wide",
 )
 
+sidebar_header = BeautifulSoup()
+sidebar_header.extend(
+    [
+        make_div(
+            style=CSSStyle(
+                text_align="left",
+                font_size="18px",
+                font_weight="bold",
+                margin_top="-10px",
+            ),
+            text=constants.CONFERENCE_NAME,
+        ),
+        make_div(
+            style=CSSStyle(text_align="left", font_size="14px"),
+            text=constants.CONFERENCE_DATE,
+        ),
+        make_div(
+            style=CSSStyle(
+                text_align="left",
+                font_size="14px",
+                font_style="italic",
+                margin_bottom="10px",
+            ),
+            text=constants.AUTHOR,
+        ),
+    ]
+)
+
+
 conf_column_logo, conf_column_name = st.sidebar.columns([1, 3])
 with conf_column_logo:
     st.image(str(constants.CONFERENCE_LOGO_PATH), width=55)
 with conf_column_name:
-    st.write(
-        f"""
-<div style="text-align: left; font-size: 18px; margin-top: -10px; font-weight: bold">
-    {constants.CONFERENCE_NAME}
-</div>
-<div style="text-align: left; font-size: 14px">
-    {constants.CONFERENCE_DATE}
-</div>
-<div style="text-align: left; font-size: 14px; margin-bottom: 10px; font-style: italic">
-    {constants.AUTHOR}
-</div>
-    """,
-        unsafe_allow_html=True,
-    )
+    st_write_bf4(sidebar_header)
 
 
 # Streamlit book properties
