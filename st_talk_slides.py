@@ -1,15 +1,34 @@
 import streamlit as st
 import streamlit_book as stb
 
-from constants import CONFERENCE_LOGO_PATH, CONFERENCE_NAME
+import constants
 
 # Streamlit webpage properties
 st.set_page_config(
-    page_title=CONFERENCE_NAME, page_icon=str(CONFERENCE_LOGO_PATH), layout="wide"
+    page_title=constants.CONFERENCE_NAME,
+    page_icon=str(constants.CONFERENCE_LOGO_PATH),
+    layout="wide",
 )
 
-st.sidebar.image(str(CONFERENCE_LOGO_PATH), width=50)
-st.sidebar.write(CONFERENCE_NAME)
+conf_column_logo, conf_column_name = st.sidebar.columns([1, 3])
+with conf_column_logo:
+    st.image(str(constants.CONFERENCE_LOGO_PATH), width=55)
+with conf_column_name:
+    st.write(
+        f"""
+<div style="text-align: left; font-size: 18px; margin-top: -10px; font-weight: bold">
+    {constants.CONFERENCE_NAME}
+</div>
+<div style="text-align: left; font-size: 14px">
+    {constants.CONFERENCE_DATE}
+</div>
+<div style="text-align: left; font-size: 14px; margin-bottom: 10px; font-style: italic">
+    {constants.AUTHOR}
+</div>
+    """,
+        unsafe_allow_html=True,
+    )
+
 
 # Streamlit book properties
 stb.set_book_config(
