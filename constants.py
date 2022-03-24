@@ -13,3 +13,6 @@ IMAGES_DIR = ROOT_DIR / "images"
 PAGES_DIR = ROOT_DIR / "pages"
 
 CONFERENCE_LOGO_PATH = IMAGES_DIR / "PyConDE_PyDataBer_circle_trans_500.png"
+
+# CSS STYLES
+FULL_HEIGHT_PIXELS = 760
