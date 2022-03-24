@@ -5,7 +5,7 @@ stb.set_book_config(
     menu_title="Introduction",
     menu_icon="book",
     options=[
-        "Title",
+        "Hello :)",
         "Who I am ?",
         "ML engineers are Software engineers ...",
         "... but ML is different from classical Software engineering",
