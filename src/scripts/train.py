@@ -1,10 +1,9 @@
 # Original code from: https://www.tensorflow.org/tutorials/images/transfer_learning
 import tensorflow as tf
-from dvclive.keras import DvcLiveCallback
-from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 
-from src.scripts.params import (
+from scripts.params import (
     BACKBONE,
     BATCH_SIZE,
     DATASET_DIR,
@@ -57,8 +56,7 @@ outputs = tf.keras.layers.Dense(1)(x)
 model = tf.keras.Model(inputs, outputs)
 
 callbacks = [
-    # Use dvclive's Keras callback
-    DvcLiveCallback(),
+    TensorBoard(TRAIN_DIR / "tensorboard"),
     ModelCheckpoint(str(TRAIN_DIR / "best_weights.h5"), save_best_only=True),
 ]
 
@@ -67,7 +65,7 @@ callbacks = [
 base_model.trainable = False
 
 model.compile(
-    optimizer=tf.keras.optimizers.Adam(lr=LEARNING_RATE),
+    optimizer=tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE),
     loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
     metrics=["accuracy"],
 )
@@ -109,4 +107,4 @@ history_fine = model.fit(
 
 #%% Load best weights and save model
 model.load_weights(str(TRAIN_DIR / "best_weights.h5"))
-tf.saved_model.save(model, str(TRAIN_DIR / "model"))
+model.save(str(TRAIN_DIR / "model"))

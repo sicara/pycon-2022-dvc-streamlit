@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from src.scripts.params import DATASET_DIR, DATASET_VAL_TEST_SPLIT, RAW_DATASET_DIR
+from scripts.params import DATASET_DIR, DATASET_VAL_TEST_SPLIT, RAW_DATASET_DIR
 
 #%% Create dirs if necessary
 DATASET_DIR.mkdir(exist_ok=True)
@@ -26,19 +26,13 @@ dataset_df = pd.DataFrame(
         lambda split: (
             "train"
             if split == "train"
-            else np.random.choice(
-                list(DATASET_VAL_TEST_SPLIT), p=list(DATASET_VAL_TEST_SPLIT.values())
-            )
+            else np.random.choice(list(DATASET_VAL_TEST_SPLIT), p=list(DATASET_VAL_TEST_SPLIT.values()))
         )
     )
 )
 
 print(dataset_df.groupby(["split", "label"]).image_name.count())
-(
-    dataset_df.drop(columns=["raw_path", "raw_split"]).to_csv(
-        DATASET_DIR / "dataset.csv", index=False
-    )
-)
+(dataset_df.drop(columns=["raw_path", "raw_split"]).to_csv(DATASET_DIR / "dataset.csv", index=False))
 
 #%% Copy images to split subdirs
 for split in ["train", "val", "test"]:

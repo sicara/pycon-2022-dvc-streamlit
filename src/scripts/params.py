@@ -3,15 +3,15 @@ from pydoc import locate
 
 import yaml
 
-PARAMETERS_FILE = "params.yaml"
-
+PIPELINE_DIR = Path(__file__).resolve().parents[1]
+PARAMETERS_FILE = PIPELINE_DIR / "params.yaml"
 
 with open(PARAMETERS_FILE) as file:
     print(f'Parsing parameters from "{PARAMETERS_FILE}"')
     params = yaml.safe_load(file)
 
 
-ROOT_DIR = Path(params["root_dir"])
+ROOT_DIR = PIPELINE_DIR / params["root_dir"]
 
 # Dataset parameters
 RAW_DATASET_DIR = ROOT_DIR / params["data"]["download"]["subdir"]

@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import tensorflow as tf
 
-from src.scripts.params import BATCH_SIZE, DATASET_DIR, EVALUATION_DIR, IMG_SIZE, TRAIN_DIR
+from scripts.params import BATCH_SIZE, DATASET_DIR, EVALUATION_DIR, IMG_SIZE, TRAIN_DIR
 
 #%% Create evaluation dir if necessary
 EVALUATION_DIR.mkdir(exist_ok=True)
