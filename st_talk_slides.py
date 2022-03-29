@@ -33,9 +33,7 @@ sidebar_header_title.extend(
         ),
     ]
 )
-sidebar_header = make_div(
-    style=CSSStyle(margin_top="-40px", margin_bottom="20px", display="flex")
-)
+sidebar_header = make_div(style=CSSStyle(margin_top="-40px", margin_bottom="20px", display="flex"))
 sidebar_header.extend([sidebar_header_logo, sidebar_header_title])
 
 
@@ -49,8 +47,8 @@ stb.set_book_config(
     menu_icon="book",
     options=[
         "Introduction",
-        "A DVC Pipeline to Train a Cats vs Dogs Classifier",
-        "Models are Trained: Time to Dig Up!",
+        "Let's do Machine Learning!",
+        "Model is trained: time to dig up!",
         "DVC + Streamlit = ❤️",
         "Conclusion",
     ],
