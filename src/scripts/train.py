@@ -1,4 +1,7 @@
 # Original code from: https://www.tensorflow.org/tutorials/images/transfer_learning
+import random
+
+import numpy as np
 import tensorflow as tf
 from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from tensorflow.keras.preprocessing import image_dataset_from_directory
@@ -14,7 +17,15 @@ from scripts.params import (
     LEARNING_RATE,
     PREPROCESS_INPUT,
     TRAIN_DIR,
+    TRAIN_SEED,
 )
+
+#%% Set random seed
+print("Setting random seed:", TRAIN_SEED)
+random.seed(TRAIN_SEED)
+np.random.seed(TRAIN_SEED)
+tf.random.set_seed(TRAIN_SEED)
+
 
 #%% Load dataset
 train_dataset = image_dataset_from_directory(

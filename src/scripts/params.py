@@ -23,6 +23,7 @@ DATASET_VAL_TEST_SPLIT = params["data"]["dataset"]["val_test_split"]
 BATCH_SIZE = params["train"]["batch_size"]
 IMG_SIZE = tuple(params["train"]["img_size"])
 LEARNING_RATE = params["train"]["learning_rate"]
+TRAIN_SEED = params["train"]["seed"]
 TRAIN_DIR = ROOT_DIR / params["train"]["subdir"]
 EPOCHS_FROZEN = params["train"]["epochs"]["frozen"]
 EPOCHS_UNFROZEN = params["train"]["epochs"]["unfrozen"]
