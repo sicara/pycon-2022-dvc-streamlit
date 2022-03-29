@@ -1,20 +1,25 @@
-import pandas as pd
 import streamlit as st
-from st_aggrid import AgGrid
 
-df = pd.read_csv(
-    "https://raw.githubusercontent.com/fivethirtyeight/data/master/airline-safety/airline-safety.csv"
-)
-grid_options = {
-    "columnDefs": [
-        {
-            "headerName": "airline",
-            "field": "airline",
-            "editable": True,
-        },
-    ],
-}
+st.title("Machine Learning Engineers are Software Engineers !")
 
-resp = AgGrid(df, editable=True)  # , grid_options)
+col_a, col_b = st.columns(2)
 
-st.write(resp["data"])
+with col_a:
+    st.info(
+        """
+### Leverage best practices and best tools for coding
+
+- Do not reinvent the wheel!
+- ...
+"""
+    )
+
+with col_b:
+    st.success(
+        """
+### Introduce ML-specific tools only when it is really needed
+
+- ...
+- Experiment tracking !
+"""
+    )
