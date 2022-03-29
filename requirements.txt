@@ -40,6 +40,7 @@ distro==1.7.0
 dpath==2.0.6
 dulwich==0.20.34
 dvc==2.9.5
+dvclive==0.6.0
 entrypoints==0.4
 executing==0.8.3
 filelock==3.6.0
