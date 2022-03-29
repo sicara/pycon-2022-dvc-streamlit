@@ -71,27 +71,27 @@ stages:
           - 160
           - 160
           learning_rate: 0.0001
-          seed: 1234
+          seed: 42
           subdir: train
           epochs:
-            frozen: 1
-            unfrozen: 1
-          fine_tune_at: 100
+            frozen: 3
+            unfrozen: 3
+          fine_tune_at: 80
     outs:
     - path: ./data/train/best_weights.h5
-      md5: 7063c1780112e7268dd96e0abb0af45a
-      size: 16919992
+      md5: 4a0debfbec54516b31e8e2f39b4f5571
+      size: 17671512
     - path: ./data/train/model
-      md5: 06228c2604b33afb053be1a0ed040860.dir
-      size: 20575001
+      md5: 4246b823e49c6f38c9e9742c13b22ea1.dir
+      size: 21332859
       nfiles: 4
     - path: ./data/train/tensorboard
-      md5: 944b52474e8377445128cf7c8d1dc1db.dir
-      size: 1295557
+      md5: 65f06ca943b0329b9bf14a0803d3b988.dir
+      size: 1397386
       nfiles: 4
     - path: logs/train.out
-      md5: 2caad7a2873846bc134a7a99c30a99da
-      size: 25719
+      md5: ce144a044092d0ddd822009a96748dba
+      size: 68243
   evaluate:
     cmd: python scripts/evaluate.py &> logs/evaluate.out
     deps:
@@ -100,8 +100,8 @@ stages:
       size: 6711947
       nfiles: 294
     - path: ./data/train/model
-      md5: 06228c2604b33afb053be1a0ed040860.dir
-      size: 20575001
+      md5: 4246b823e49c6f38c9e9742c13b22ea1.dir
+      size: 21332859
       nfiles: 4
     - path: scripts/evaluate.py
       md5: 6e906b98af0ef9451137beb95f889e95
@@ -111,8 +111,8 @@ stages:
       md5: 9cac177b71c1efe786480cfb1eec6e4a
       size: 56
     - path: ./data/evaluation/predictions.csv
-      md5: cec735065c00a0eeabbafa2a2edde230
-      size: 36524
+      md5: fcbf0373f09c6541b6ae5d3786aa69af
+      size: 44293
     - path: logs/evaluate.out
-      md5: ded91ea297b98ffe56342f11d0b7827e
-      size: 474
+      md5: 6ac7b434ae370bb12f83271541ba2340
+      size: 500
