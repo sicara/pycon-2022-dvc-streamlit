@@ -1,19 +1,3 @@
-import streamlit as st
+from utils.commands import st_command
 
-command = st.text_input("Enter a command")
-
-
-def run_command(command: str):
-    import subprocess
-
-    st.info(f"Running '{command}'")
-    result = subprocess.run(command.split(" "), capture_output=True, text=True)
-    try:
-        result.check_returncode()
-        st.text(result.stdout)
-    except subprocess.CalledProcessError as e:
-        st.error(result.stderr)
-
-
-if command:
-    run_command(command)
+st_command(label="Enter a command :)", initial_command="dvc status src/dvc.yaml")
