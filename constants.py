@@ -16,3 +16,8 @@ CONFERENCE_FULL_LOGO_PATH = IMAGES_DIR / "PyConDEPyDataBER-1800-transparent.png"
 
 # CSS STYLES
 FULL_HEIGHT_PIXELS = 760
+
+# Pipeline code
+CODE_DIR = ROOT_DIR / "src"
+PIPELINE_PATH = CODE_DIR / "dvc.yaml"
+PARAMS_PATH = CODE_DIR / "params.yaml"

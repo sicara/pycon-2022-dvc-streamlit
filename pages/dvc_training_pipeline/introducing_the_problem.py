@@ -1,7 +1,9 @@
 import pandas as pd
 import streamlit as st
 
-dataset = pd.read_csv("src/data/dataset/dataset.csv")
+from constants import ROOT_DIR
+
+dataset = pd.read_csv(ROOT_DIR / "src" / "data" / "dataset" / "dataset.csv")
 st.write(dataset)
 st.write(dataset.split.value_counts())
 

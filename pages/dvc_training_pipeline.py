@@ -6,10 +6,12 @@ stb.set_book_config(
     menu_icon="book",
     options=[
         "Classifying Cats and Dogs",
-        "Introducing the Training Pipeline",
+        "The Training scripts",
+        "The Training Pipeline",
     ],
     paths=[
         "pages/dvc_training_pipeline/introducing_the_problem.py",
+        "pages/dvc_training_pipeline/introducing_the_scripts.py",
         "pages/dvc_training_pipeline/introducing_the_training_pipeline.py",
     ],
     save_answers=False,
