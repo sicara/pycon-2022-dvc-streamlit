@@ -1,22 +1,11 @@
-import pandas as pd
 import streamlit as st
 
-from constants import ROOT_DIR
+from constants import IMAGES_DIR
+from utils.html_factory import CSSStyle, make_img, st_write_bs4
 
-dataset = pd.read_csv(ROOT_DIR / "src" / "data" / "dataset" / "dataset.csv")
-st.write(dataset)
-st.write(dataset.split.value_counts())
+st.title("Classify images of cats and dogs")
 
-st.info(
-    """
-@Inproceedings (Conference){asirra-a-captcha-that-exploits-interest-aligned-manual-image-categorization,
-author = {Elson, Jeremy and Douceur, John (JD) and Howell, Jon and Saul, Jared},
-title = {Asirra: A CAPTCHA that Exploits Interest-Aligned Manual Image Categorization},
-booktitle = {Proceedings of 14th ACM Conference on Computer and Communications Security (CCS)},
-year = {2007},
-month = {October},
-publisher = {Association for Computing Machinery, Inc.},
-url = {https://www.microsoft.com/en-us/research/publication/asirra-a-captcha-that-exploits-interest-aligned-manual-image-categorization/},
-edition = {Proceedings of 14th ACM Conference on Computer and Communications Security (CCS)},
-}"""
-)
+st.write("Problem adapted from a Tensorflow tutorial: Transfer learning and fine-tuning")
+
+st.image(str(IMAGES_DIR / "tutorial-colab.png"), width=1024)
+st_write_bs4(make_img(src=IMAGES_DIR / "cats_or_dog_model.svg", style=CSSStyle(width="80%")))

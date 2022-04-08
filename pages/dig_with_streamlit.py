@@ -3,7 +3,7 @@ import streamlit_book as stb
 
 def st_show():
     stb.set_book_config(
-        menu_title="Dig with Streamlit",
+        menu_title="Streamlit",
         menu_icon="book",
         options=[
             "What is Streamlit?",
