@@ -1,25 +1,18 @@
 import streamlit as st
 
-st.title("Machine Learning Engineers are Software Engineers !")
+from constants import IMAGES_DIR
+from utils.html_factory import CSSStyle, make_img, st_write_bs4
 
-col_a, col_b = st.columns(2)
+st.title("What is Machine Learning Engineering?")
 
-with col_a:
-    st.info(
-        """
-### Leverage best practices and best tools for coding
+st.markdown("It is a cross-field job:")
 
-- Do not reinvent the wheel!
-- ...
-"""
+st_write_bs4(
+    make_img(
+        IMAGES_DIR / "ml_engineer_is_software_engineer.svg",
+        style=CSSStyle(width="80%", margin="30px auto", display="block"),
     )
+)
 
-with col_b:
-    st.success(
-        """
-### Introduce ML-specific tools only when it is really needed
 
-- ...
-- Experiment tracking !
-"""
-    )
+st.write("### Leverage best practices and best tools for coding: do not reinvent the wheel!")

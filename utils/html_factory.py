@@ -24,14 +24,8 @@ class CSSStyle:
         return key.replace("_", "-")
 
 
-def make_tag(
-    name: TAG, style: Optional[CSSStyle] = None, text: Optional[str] = None
-) -> BeautifulSoup:
-    new_tag = (
-        BeautifulSoup().new_tag(name, style=str(style))
-        if style
-        else BeautifulSoup().new_tag(name)
-    )
+def make_tag(name: TAG, style: Optional[CSSStyle] = None, text: Optional[str] = None) -> BeautifulSoup:
+    new_tag = BeautifulSoup().new_tag(name, style=str(style)) if style else BeautifulSoup().new_tag(name)
 
     if text:
         new_tag.append(text)
@@ -46,8 +40,15 @@ def make_img(src: Path, style: Optional[CSSStyle] = None) -> BeautifulSoup:
     image_bs = make_tag("img", style=style)
     image_ext = src.suffix[1:]
 
-    with open(src, "rb") as image_file:
-        b64_image = base64.b64encode(image_file.read()).decode("utf-8")
+    if image_ext == "svg":
+        with open(src, "r") as f:
+            lines = f.readlines()
+            svg = "".join(lines)
+        b64_image = base64.b64encode(svg.encode("utf-8")).decode("utf-8")
+        image_ext = "svg+xml"
+    else:
+        with open(src, "rb") as image_file:
+            b64_image = base64.b64encode(image_file.read()).decode("utf-8")
 
     image_bs["src"] = f"data:image/{image_ext};base64,{b64_image}"
 

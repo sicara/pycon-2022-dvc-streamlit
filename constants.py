@@ -21,3 +21,18 @@ FULL_HEIGHT_PIXELS = 760
 CODE_DIR = ROOT_DIR / "src"
 PIPELINE_PATH = CODE_DIR / "dvc.yaml"
 PARAMS_PATH = CODE_DIR / "params.yaml"
+
+# Pages
+CHAPTER_INTRODUCTION = "1️⃣ Introduction"
+CHAPTER_ML_PIPELINE = "2️⃣ Let's do machine learning!"
+CHAPTER_ML_ANALYSIS = "3️⃣ Model is trained: time to dig up!"
+CHAPTER_DVC_AND_STREAMLIT = "4️⃣ DVC + Streamlit = ❤️"
+CHAPTER_CONCLUSION = "5️⃣ Conclusion"
+
+CHAPTERS = [
+    CHAPTER_INTRODUCTION,
+    CHAPTER_ML_PIPELINE,
+    CHAPTER_ML_ANALYSIS,
+    CHAPTER_DVC_AND_STREAMLIT,
+    CHAPTER_CONCLUSION,
+]

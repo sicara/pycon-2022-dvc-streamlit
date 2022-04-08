@@ -1,8 +1,9 @@
 import streamlit as st
-import streamlit_book as stb
 
 import constants
+from pages import conclusion, dig_with_streamlit, dvc_and_streamlit, dvc_training_pipeline, introduction
 from utils.html_factory import CSSStyle, make_div, make_img, st_write_bs4
+from utils.title import st_write_title
 
 # Streamlit webpage properties
 st.set_page_config(
@@ -40,26 +41,26 @@ sidebar_header.extend([sidebar_header_logo, sidebar_header_title])
 with st.sidebar:
     st_write_bs4(sidebar_header)
 
+# Main Chapter selection
+NO_CHAPTER = "👋 Hello :)"
 
-# Streamlit book properties
-stb.set_book_config(
-    menu_title="Menu",
-    menu_icon="book",
-    options=[
-        "Introduction",
-        "Let's do Machine Learning!",
-        "Model is trained: time to dig up!",
-        "DVC + Streamlit = ❤️",
-        "Conclusion",
-    ],
-    paths=[
-        "pages/introduction.py",
-        "pages/dvc_training_pipeline.py",
-        "pages/dig_with_streamlit.py",
-        "pages/dvc_and_streamlit.py",
-        "pages/conclusion.py",
-    ],
-    icons=[],  # from https://icons.getbootstrap.com/
-    save_answers=False,
-    orientation="vertical",
+selected_part = st.sidebar.selectbox(
+    label="📚 Today's menu:",
+    options=[NO_CHAPTER, *constants.CHAPTERS],
 )
+
+# Show chapters
+if selected_part == NO_CHAPTER:
+    st_write_title()
+elif selected_part == constants.CHAPTER_INTRODUCTION:
+    introduction.st_show()
+elif selected_part == constants.CHAPTER_ML_PIPELINE:
+    dvc_training_pipeline.st_show()
+elif selected_part == constants.CHAPTER_ML_ANALYSIS:
+    dig_with_streamlit.st_show()
+elif selected_part == constants.CHAPTER_DVC_AND_STREAMLIT:
+    dvc_and_streamlit.st_show()
+elif selected_part == constants.CHAPTER_CONCLUSION:
+    conclusion.st_show()
+else:
+    st.error("Unknown chapter")
