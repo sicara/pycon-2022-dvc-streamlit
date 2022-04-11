@@ -26,7 +26,7 @@ PARAMS_PATH = CODE_DIR / "params.yaml"
 CHAPTER_INTRODUCTION = "1️⃣ Introduction"
 CHAPTER_ML_PIPELINE = "2️⃣ Let's do ML!"
 CHAPTER_ML_ANALYSIS = "3️⃣ Let's build a UI!"
-CHAPTER_DVC_AND_STREAMLIT = "4️⃣ DVC + Streamlit = ❤️ "
+CHAPTER_DVC_AND_STREAMLIT = "4️⃣ DVC + Streamlit = ❤️"
 CHAPTER_CONCLUSION = "5️⃣ Conclusion"
 
 CHAPTERS = [

@@ -10,7 +10,7 @@ with col_a:
         """
 - modify the data: splits, preprocessing, ...
 - modify the model: architecture, hyperparameters, ...
-- modify the scripts themselves"
+- modify the scripts
 """
     )
     st.write("### 😀")
