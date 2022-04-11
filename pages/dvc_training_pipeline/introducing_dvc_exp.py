@@ -30,7 +30,7 @@ with col_b:
         """
 1. edit the `parameters.yaml` file accordingly to the `-set-params` options
 2. run the `dvc.yaml` pipeline just like `dvc repro`
-3. create a commit and track it with a custom refs
+3. create a commit and track it with a git custom reference
 
 Experiments can be queued using `--queue` option and run (in parallel) using `--run-all` option.
     """

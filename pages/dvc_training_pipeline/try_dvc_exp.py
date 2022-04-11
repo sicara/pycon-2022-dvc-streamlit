@@ -15,7 +15,7 @@ with col_a:
 
 with col_b:
     st.write("Select columns to display:")
-    st.code("dvc exp show --drop [\s\S]* --keep Experiment|accuracy|train.seed", language="bash")
+    st.code("dvc exp show --drop [\s\S]* --keep Experiment|accuracy|train.seed|train.fine_tune_at", language="bash")
 
     st.write("Sort experiments:")
     st.code("dvc exp show --sort-by COLUMN --sort-order {asc|desc}", language="bash")
