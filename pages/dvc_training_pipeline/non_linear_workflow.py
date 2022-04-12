@@ -3,7 +3,7 @@ import streamlit as st
 from constants import IMAGES_DIR
 from utils.html_factory import CSSStyle, make_img, st_write_bs4
 
-st.title("R&D is a non linear workflow")
+st.title("R&D is a Non Linear Workflow")
 
 schema_style = CSSStyle(width="80%", margin="0 auto", display="block")
 

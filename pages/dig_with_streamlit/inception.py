@@ -23,5 +23,5 @@ with col_intro_a:
     )
 
 with col_intro_b:
-    st.write("(Soon) Most popular library for building data dashboard in Python:")
+    st.write("(Soon) the Most popular library for building data dashboard in Python:")
     st.image(str(IMAGES_DIR / "streamlit-star-history.png"), use_column_width=True)

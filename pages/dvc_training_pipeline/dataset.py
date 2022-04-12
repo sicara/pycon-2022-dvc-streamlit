@@ -4,7 +4,7 @@ import streamlit as st
 
 from constants import CODE_DIR
 
-st.title("The cats vs. dogs dataset")
+st.title("The Cats vs. Dogs Dataset")
 
 
 def get_image_path(df: pd.DataFrame) -> pd.Series:

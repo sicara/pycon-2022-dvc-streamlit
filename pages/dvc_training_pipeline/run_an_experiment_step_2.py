@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Run an experiment, third try")
+st.title("Run an Experiment, Third Try")
 
 col_a, col_b = st.columns(2)
 

@@ -12,7 +12,7 @@ def st_show():
             "Run an experiment! (first try)",
             "DVC, help us! (1/2)",
             "DVC, help us! (2/2)",
-            "An experiment = a DVC Pipeline",
+            "An experiment = a DVC pipeline",
             "Run an experiment! (second try)",
             "Dealing with non-linear workflow",
             "Introducing DVC experiments",

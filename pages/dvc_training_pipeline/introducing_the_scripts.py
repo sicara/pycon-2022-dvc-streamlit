@@ -4,7 +4,7 @@ from constants import CODE_DIR, IMAGES_DIR
 from utils.code_samples import st_write_code_from_file
 from utils.html_factory import CSSStyle, make_img, st_write_bs4
 
-st.title("The training pipeline")
+st.title("The Training Pipeline")
 
 script_col, pipeline_col = st.columns([2, 1])
 

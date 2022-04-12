@@ -2,7 +2,7 @@ import streamlit as st
 
 from constants import IMAGES_DIR
 
-st.title("ML engineering is more than software engineering")
+st.title("ML Engineering is more than Software Engineering")
 
 _, fig_col, _ = st.columns([1, 5, 1])
 

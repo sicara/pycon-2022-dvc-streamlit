@@ -3,7 +3,7 @@ import streamlit as st
 
 from constants import ROOT_DIR
 
-st.title("Retrieving experiments commits")
+st.title("Retrieving Experiments Commits")
 st.markdown(
     """
 - first step to (re)build a table of experiments

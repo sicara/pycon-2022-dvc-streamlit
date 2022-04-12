@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Comparing two models")
+st.title("Comparing Two Models")
 
 
 def get_code_model_diffing():

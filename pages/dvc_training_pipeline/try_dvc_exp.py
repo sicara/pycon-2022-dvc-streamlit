@@ -2,7 +2,7 @@ import streamlit as st
 
 from utils.commands import st_command
 
-st.title("🧪 See the experiment table")
+st.title("🧪 See the Experiment Table")
 
 st.write("### 🚀 Cheat sheet")
 col_a, col_b = st.columns(2)

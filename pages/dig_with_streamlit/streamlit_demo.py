@@ -1,4 +1,3 @@
-import pandas as pd
 import streamlit as st
 
 col_a, col_b, col_c = st.columns(3)

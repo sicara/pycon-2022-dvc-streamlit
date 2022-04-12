@@ -3,7 +3,7 @@ import streamlit as st
 from constants import IMAGES_DIR
 from utils.html_factory import CSSStyle, make_img, st_write_bs4
 
-st.title("Why an ML experiment tracking system?")
+st.title("Why an ML Experiment Tracking System?")
 
 st_write_bs4(
     make_img(

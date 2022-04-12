@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Interactive UI for Metrics")
+st.title("See the Images")
 
 
 def get_code_display_image():

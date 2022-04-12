@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Run the model")
+st.title("Run the Model")
 
 
 def get_code_run_the_model():
