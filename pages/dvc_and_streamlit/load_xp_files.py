@@ -36,7 +36,7 @@ def load_predictions(rev: str) -> pd.DataFrame:
 st.write("2️⃣ Feed it with experiment commits:")
 st.code(
     """
-options = [{
+experiments_options = [{
         "name": experiment_metadata["data"].get("name", "-"),
         "commit": experiment_commit_sha[:6],
     }
@@ -46,7 +46,7 @@ options = [{
 
 selected_rev = st.selectbox(
     label="Select an experiment",
-    options=options,
+    options=experiments_options,
     format_func=lambda xp: f"{xp['commit']} ({xp['name']})",
 )
 """
@@ -57,18 +57,19 @@ DVC_REPO = dvc.repo.Repo(".")
 experiment_commits = DVC_REPO.experiments.ls(all_=True)
 experiments_metadata = DVC_REPO.experiments.show(revs=list(experiment_commits))
 
-options = [
+experiments_options = [
     {
         "name": experiment_metadata["data"].get("name", "-"),
         "commit": experiment_commit_sha,
     }
     for commit_parent_sha, experiments in experiments_metadata.items()
     for experiment_commit_sha, experiment_metadata in experiments.items()
+    if experiment_commit_sha != "baseline"
 ]
 
 
 selected_rev = st.selectbox(
     label="Select an experiment",
-    options=options,
+    options=experiments_options,
     format_func=lambda xp: f"{xp['commit']} ({xp['name']})",
 )

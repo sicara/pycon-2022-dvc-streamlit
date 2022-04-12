@@ -8,10 +8,10 @@ with pros_col:
     st.markdown(
         """
 ### 👍
-- Evolution of the UI
+- Evolution of the UI:
   - evolves with the project
   - lead time from an idea popping in mind and make it real
-- No limit to UI customization
+- No limit to UI customization:
   - any media: audio / video / NLP / ...
   - Streamlit custom component in ReactJs
 """

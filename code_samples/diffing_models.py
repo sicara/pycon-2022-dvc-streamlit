@@ -61,15 +61,9 @@ merged_predictions = pd.merge(
     how="outer",
 )
 
-st.write("Mean absolute disagreement:", (merged_predictions.prediction_fst - merged_predictions.prediction_snd).mean())
-
 disagree_predictions = merged_predictions.loc[
     merged_predictions["predicted_label_fst"] != merged_predictions["predicted_label_snd"]
 ]
-
-st.write("Disagreements:")
-AgGrid(disagree_predictions)
-
 
 # Hack to get the image path from the raw image path in tmp xp dir
 def fix_image_path(raw_image_path):
@@ -83,8 +77,11 @@ def fix_image_path(raw_image_path):
 
 if disagree_predictions.empty:
     st.write("No disagreements found")
+else:
+    st.write("Disagreements:")
+    AgGrid(disagree_predictions)
 
-st.image(
-    disagree_predictions.image_path.map(fix_image_path).to_list(),
-    width=150,
-)
+    st.image(
+        disagree_predictions.image_path.map(fix_image_path).to_list(),
+        width=150,
+    )

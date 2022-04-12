@@ -107,6 +107,8 @@ phonenumbers==8.12.45
 pickleshare==0.7.5
 Pillow==9.0.1
 platformdirs==2.5.1
+Plost==0.2.5
+plotly==5.7.0
 ply==3.11
 pre-commit==2.17.0
 prometheus-client==0.13.1
@@ -157,6 +159,7 @@ streamlit-aggrid==0.2.3.post2
 streamlit-book==0.7.0
 streamlit-option-menu==0.3.2
 tabulate==0.8.9
+tenacity==8.0.1
 tensorboard==2.8.0
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1

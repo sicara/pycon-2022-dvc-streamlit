@@ -1,6 +1,8 @@
 import dvc.repo
 import pandas as pd
+import plotly.express as px
 import streamlit
+import streamlit as st
 from st_aggrid import AgGrid
 
 from constants import ROOT_DIR
@@ -36,4 +38,17 @@ experiments_df = pd.DataFrame(experiments_dict)
 
 AgGrid(experiments_df)
 
+st.write("Experiment Accuracies:")
 streamlit.bar_chart(data=experiments_df.set_index("name").accuracy)
+
+
+st.write("Accuracy vs. Fine Tune At:")
+fig = px.scatter(
+    experiments_df.assign(seed=experiments_df.seed.astype(str)),
+    y="fine_tune_at",
+    x="accuracy",
+    color="seed",
+    symbol="seed",
+)
+fig.update_traces(marker_size=10)
+st.plotly_chart(fig)
