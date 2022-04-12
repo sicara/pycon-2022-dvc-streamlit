@@ -1,6 +1,8 @@
 absl-py==1.0.0
+aiobotocore==2.1.2
 aiohttp==3.8.1
 aiohttp-retry==2.4.6
+aioitertools==0.10.0
 aiosignal==1.2.0
 altair==4.2.0
 appdirs==1.4.4
@@ -20,6 +22,8 @@ beautifulsoup4==4.10.0
 black==22.1.0
 bleach==4.1.0
 blinker==1.4
+boto3==1.20.24
+botocore==1.23.24
 cachetools==5.0.0
 certifi==2021.10.8
 cffi==1.15.0
@@ -39,7 +43,8 @@ distlib==0.3.4
 distro==1.7.0
 dpath==2.0.6
 dulwich==0.20.34
-dvc==2.9.5
+dvc==2.10.1
+dvc-render==0.0.4
 dvclive==0.6.0
 entrypoints==0.4
 executing==0.8.3
@@ -71,6 +76,7 @@ ipywidgets==7.6.5
 isort==5.10.1
 jedi==0.18.1
 Jinja2==3.0.3
+jmespath==0.10.0
 jsonschema==4.4.0
 jupyter-client==7.1.2
 jupyter-core==4.9.2
@@ -144,7 +150,9 @@ rich==12.0.0
 rsa==4.8
 ruamel.yaml==0.17.21
 ruamel.yaml.clib==0.2.6
-scmrepo==0.0.7
+s3fs==2022.2.0
+s3transfer==0.5.2
+scmrepo==0.0.16
 semver==2.13.0
 Send2Trash==1.8.0
 shortuuid==1.0.8
@@ -174,7 +182,7 @@ toml==0.10.2
 tomli==2.0.1
 toolz==0.11.2
 tornado==6.1
-tqdm==4.63.0
+tqdm==4.64.0
 traitlets==5.1.1
 typing_extensions==4.1.1
 tzdata==2021.5

@@ -14,6 +14,7 @@ with pros_col:
 - No limit to UI customization:
   - any media: audio / video / NLP / ...
   - Streamlit custom component in ReactJs
+- Close to zero setup time: perfect for a small team starting an AI project
 """
     )
 
@@ -23,6 +24,7 @@ with cons_col:
         """
 ### 👎
 - requires **software engineering** skills
+- DVC & Streamlit are recent techs
 - harder to maintain in the long term:
   - retro compatibility as the pipeline evolves
   - technical debt to be handled
@@ -32,12 +34,11 @@ with cons_col:
 
 # Jump lines
 st.write("")
-st.write("")
-st.write("")
 
 st.markdown(
     """
 ### 🚀 Next steps
+- deploy Streamlit apps on a remote shared server
 - dealing with the infra (outside the scope of ML experiment tracking)
   - running pipelines on kubernetes
   - run DVC pipeline on any **execution engine**

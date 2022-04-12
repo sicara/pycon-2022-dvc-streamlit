@@ -1,0 +1,4 @@
+[core]
+    remote = origin
+['remote "origin"']
+    url = https://public-sicara.s3.amazonaws.com/dvc-remotes/pycon-2022-dvc-streamlit
