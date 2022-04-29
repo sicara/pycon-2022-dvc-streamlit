@@ -43,9 +43,9 @@ distlib==0.3.4
 distro==1.7.0
 dpath==2.0.6
 dulwich==0.20.34
-dvc==2.10.1
-dvc-render==0.0.4
-dvclive==0.6.0
+dvc==2.10.2
+dvc-render==0.0.5
+dvclive==0.7.3
 entrypoints==0.4
 executing==0.8.3
 filelock==3.6.0
@@ -152,7 +152,7 @@ ruamel.yaml==0.17.21
 ruamel.yaml.clib==0.2.6
 s3fs==2022.2.0
 s3transfer==0.5.2
-scmrepo==0.0.16
+scmrepo==0.0.19
 semver==2.13.0
 Send2Trash==1.8.0
 shortuuid==1.0.8
@@ -162,7 +162,7 @@ six==1.16.0
 smmap==5.0.0
 soupsieve==2.3.1
 stack-data==0.2.0
-streamlit==1.7.0
+streamlit==1.8.1
 streamlit-aggrid==0.2.3.post2
 streamlit-book==0.7.0
 streamlit-option-menu==0.3.2
