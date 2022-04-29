@@ -9,8 +9,8 @@ TITLE_P3 = "with DVC and Streamlit"
 BIG_TITLE_STYLE = CSSStyle(
     text_align="center",
     font_size="58px",
-    line_height="64px",
-    margin="40px 80px 60px 80px",
+    line_height="58px",
+    margin="40px 0px 40px 0px",
     font_weight=700,
 )
 BIG_TITLE_DIV = make_div(style=BIG_TITLE_STYLE)
@@ -22,22 +22,13 @@ BIG_TITLE_DIV.extend(
     ]
 )
 
-# Author
-AUTHOR_STYLE = CSSStyle(
-    text_align="center",
-    font_size="48px",
-    line_height="48px",
-    font_style="italic",
-    margin_bottom="40px",
-)
-AUTHOR_DIV = make_div(style=AUTHOR_STYLE, text=constants.AUTHOR)
-
 
 # Conf Logo
 BIG_LOGO_STYLE = CSSStyle(
     text_align="center",
-    width="80%",
-    margin_left="auto",
+    # Ugly CSS that works on my macbook pro and a 133% zoom on chrome
+    width="119%",
+    margin_left="-80px",
     margin_right="auto",
     display="block",
 )
@@ -51,5 +42,4 @@ BIG_LOGO_IMG = make_img(
 # main
 def st_write_title():
     st_write_bs4(BIG_TITLE_DIV)
-    st_write_bs4(AUTHOR_DIV)
     st_write_bs4(BIG_LOGO_IMG)

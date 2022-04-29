@@ -13,30 +13,14 @@ st.set_page_config(
 )
 
 # Sidebar Header
-sidebar_header_logo = make_img(
-    src=constants.CONFERENCE_LOGO_PATH,
-    style=CSSStyle(width="64px", flex=1, margin_right="20px"),
+sidebar_header = make_img(
+    src=constants.IMAGES_DIR / "pycon_2022.svg",
+    style=CSSStyle(
+        width="70%",
+        margin="-60px 0 5px 0",
+        display="block",
+    ),
 )
-sidebar_header_title = make_div(style=CSSStyle(text_align="left", flex=3))
-sidebar_header_title.extend(
-    [
-        make_div(
-            style=CSSStyle(font_size="18px", font_weight="bold"),
-            text=constants.CONFERENCE_NAME,
-        ),
-        make_div(
-            style=CSSStyle(font_size="14px"),
-            text=constants.CONFERENCE_DATE,
-        ),
-        make_div(
-            style=CSSStyle(font_size="14px", font_style="italic"),
-            text=constants.AUTHOR,
-        ),
-    ]
-)
-sidebar_header = make_div(style=CSSStyle(margin_top="-40px", margin_bottom="20px", display="flex"))
-sidebar_header.extend([sidebar_header_logo, sidebar_header_title])
-
 
 with st.sidebar:
     st_write_bs4(sidebar_header)
