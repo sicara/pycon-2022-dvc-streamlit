@@ -27,7 +27,7 @@ experiments_metadata = DVC_REPO.experiments.show(revs=list(experiment_commits))
 experiments_options = [
     {
         "name": experiment_metadata["data"].get("name", "-"),
-        "commit": experiment_commit_sha,
+        "commit": experiment_commit_sha[:6],
     }
     for commit_parent_sha, experiments in experiments_metadata.items()
     for experiment_commit_sha, experiment_metadata in experiments.items()
