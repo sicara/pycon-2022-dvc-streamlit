@@ -3,10 +3,10 @@ for Python Coders
 with DVC and Streamlit
 ===
 
-![PyConDE](./images/pyconde_official.png)
+![PyConUS](./images/pycon22_snake_slc.png)
 
 This repo provides the slides and the materials
-for [the talk I gave at PyConDE/PyDataBerlin 2022](https://2022.pycon.de/program/WADNGC/), on Tuesday April 12nd.
+for [the talk I gave at PyConUS 2022](https://us.pycon.org/2022/schedule/presentation/87/), on April 30, 2022.
 
 # 🎤 Watch the slides
 
@@ -41,8 +41,7 @@ Just run:
 streamlit run st_talk_slides.py
 ```
 
-You should see the first slide with the title:
-![title slide](./images/title-slide.png)
+You should see the first slide with the title.
 
 From there, you can navigate through the slides with the menu in the left sidebar.
 Please [open an issue](https://github.com/sicara/pycon-2022-dvc-streamlit/issues/new) if you got trouble with the slides 🙏.
