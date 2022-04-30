@@ -58,8 +58,8 @@ stages:
       size: 16230853
       nfiles: 706
     - path: scripts/train.py
-      md5: cb43505107166a1c5f2e6f6dd0ffd991
-      size: 3165
+      md5: 1b7ea8cd0e09169a0fd283b860e8bbc4
+      size: 3350
     params:
       params.yaml:
         model:
@@ -71,27 +71,27 @@ stages:
           - 160
           - 160
           learning_rate: 0.0001
-          seed: 1234
+          seed: 42
           subdir: train
           epochs:
-            frozen: 1
-            unfrozen: 1
+            frozen: 0
+            unfrozen: 3
           fine_tune_at: 100
     outs:
     - path: ./data/train/best_weights.h5
-      md5: 7063c1780112e7268dd96e0abb0af45a
+      md5: 2d1676a064bfd7df15e7d82c96caf0bf
       size: 16919992
     - path: ./data/train/model
-      md5: 06228c2604b33afb053be1a0ed040860.dir
-      size: 20575001
+      md5: 72c3a4af3ff03ab8e9827588e543c0a8.dir
+      size: 20574998
       nfiles: 4
     - path: ./data/train/tensorboard
-      md5: 944b52474e8377445128cf7c8d1dc1db.dir
-      size: 1295557
-      nfiles: 4
+      md5: 7eea0d47b2a6ff2a26f1505efd9c7ce2.dir
+      size: 779794
+      nfiles: 2
     - path: logs/train.out
-      md5: 2caad7a2873846bc134a7a99c30a99da
-      size: 25719
+      md5: c36d2caa2e26c82d1c5b60b539d42b09
+      size: 34652
   evaluate:
     cmd: python scripts/evaluate.py &> logs/evaluate.out
     deps:
@@ -100,19 +100,19 @@ stages:
       size: 6711947
       nfiles: 294
     - path: ./data/train/model
-      md5: 06228c2604b33afb053be1a0ed040860.dir
-      size: 20575001
+      md5: 72c3a4af3ff03ab8e9827588e543c0a8.dir
+      size: 20574998
       nfiles: 4
     - path: scripts/evaluate.py
       md5: 6e906b98af0ef9451137beb95f889e95
       size: 1341
     outs:
     - path: ./data/evaluation/metrics.json
-      md5: 9cac177b71c1efe786480cfb1eec6e4a
+      md5: 9bae05c0fa4d5b344157c3cdc408c311
       size: 56
     - path: ./data/evaluation/predictions.csv
-      md5: cec735065c00a0eeabbafa2a2edde230
-      size: 36524
+      md5: ef86f9e6f2994c36634c7d9a50dfc56d
+      size: 44240
     - path: logs/evaluate.out
-      md5: ded91ea297b98ffe56342f11d0b7827e
-      size: 474
+      md5: 4395657cc02a7230ea83dd261828e22c
+      size: 500
