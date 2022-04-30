@@ -14,11 +14,11 @@ def get_code_experiment_tables():
 
 st_code = get_code_experiment_tables()
 
-st.write("### 🧑‍💻 In the code")
-st.code(st_code)
-
-st.write("### 🚀 In Streamlit")
 try:
     exec(st_code)
 except Exception as e:
     st.error(f"Error: {e}")
+
+
+with st.expander("🔎 Code"):
+    st.code(st_code)

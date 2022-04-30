@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit
 import streamlit as st
-from st_aggrid import AgGrid
+from st_aggrid import AgGrid, DataReturnMode, GridOptionsBuilder, GridUpdateMode
 
 from constants import ROOT_DIR
 
@@ -17,13 +17,13 @@ experiments_dict = [
         "name": experiment_metadata["data"]["name"],
         "parent_commit": commit_parent_sha[:6],
         "commit": experiment_commit_sha[:6],
+        "date": experiment_metadata["data"]["timestamp"],
         # Parse metrics
-        "accuracy": experiment_metadata["data"]["metrics"]["src/data/evaluation/metrics.json"]["data"]["accuracy"],
+        "accuracy": 100 * experiment_metadata["data"]["metrics"]["src/data/evaluation/metrics.json"]["data"]["accuracy"],
         # Parse train parameters
         "batch_size": experiment_metadata["data"]["params"]["src/params.yaml"]["data"]["train"]["batch_size"],
-        "epochs": sum(
-            experiment_metadata["data"]["params"]["src/params.yaml"]["data"]["train"]["epochs"].values()
-        ),
+        "epochs_frozen": experiment_metadata["data"]["params"]["src/params.yaml"]["data"]["train"]["epochs"]["frozen"],
+        "epochs_unfrozen": experiment_metadata["data"]["params"]["src/params.yaml"]["data"]["train"]["epochs"]["unfrozen"],
         "fine_tune_at": experiment_metadata["data"]["params"]["src/params.yaml"]["data"]["train"]["fine_tune_at"],
         "learning_rate": experiment_metadata["data"]["params"]["src/params.yaml"]["data"]["train"]["learning_rate"],
         "seed": experiment_metadata["data"]["params"]["src/params.yaml"]["data"]["train"]["seed"],
@@ -35,20 +35,39 @@ experiments_dict = [
 ]
 
 experiments_df = pd.DataFrame(experiments_dict)
+gb = GridOptionsBuilder.from_dataframe(experiments_df)
+gb.configure_selection(selection_mode="multiple", use_checkbox=True)
+gb.configure_column("accuracy", type=["numericColumn", "numberColumnFilter", "customNumericFormat"], precision=2)
 
-AgGrid(experiments_df)
+grid_response = AgGrid(
+    experiments_df,
+    gridOptions=gb.build(),
+    data_return_mode=DataReturnMode.FILTERED_AND_SORTED,
+    update_mode=GridUpdateMode.MODEL_CHANGED,
+)
 
-st.write("Experiment Accuracies:")
-streamlit.bar_chart(data=experiments_df.set_index("name").accuracy)
+selected_experiments_df = experiments_df.loc[experiments_df.name.isin([
+    row["name"] for row in grid_response["selected_rows"]
+])] if len(grid_response["selected_rows"]) > 0 else experiments_df
 
 
-st.write("Accuracy vs. Fine Tune At:")
+st.write("### 📊 Plot bar chart")
+selected_col = st.selectbox("Select a column", list(selected_experiments_df.columns), index=4)
+streamlit.bar_chart(data=selected_experiments_df.set_index("name")[selected_col])
+
+
+st.write("### 📈 Scatter Plots")
+col_x, col_y, col_l = st.columns(3)
+selected_col_x = col_x.selectbox("X axis", list(selected_experiments_df.columns), index=7)
+selected_col_y = col_y.selectbox("Y axis", list(selected_experiments_df.columns), index=4)
+selected_col_l = col_l.selectbox("Legend", list(selected_experiments_df.columns), index=10)
+
 fig = px.scatter(
-    experiments_df.assign(seed=experiments_df.seed.astype(str)),
-    y="fine_tune_at",
-    x="accuracy",
-    color="seed",
-    symbol="seed",
+    selected_experiments_df.assign(seed=selected_experiments_df.seed.astype(str)),
+    y=selected_col_y,
+    x=selected_col_x,
+    color=selected_col_l,
+    symbol=selected_col_l,
 )
 fig.update_traces(marker_size=10)
 st.plotly_chart(fig)

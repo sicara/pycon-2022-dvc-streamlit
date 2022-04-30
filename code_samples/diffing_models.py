@@ -43,6 +43,11 @@ with fst_xp_column:
         format_func=lambda xp: f"{xp['commit']} ({xp['name']})",
     )
 
+    fst_predictions = load_predictions(rev=selected_fst_rev["commit"])
+    fst_accuracy = (fst_predictions.true_label == fst_predictions.predicted_label).mean()
+
+    st.metric(label="Accuracy", value=f"{100 * fst_accuracy:.2f}%")
+
 with snd_xp_column:
     selected_snd_rev = st.selectbox(
         label="Select second experiment",
@@ -50,8 +55,10 @@ with snd_xp_column:
         format_func=lambda xp: f"{xp['commit']} ({xp['name']})",
     )
 
-fst_predictions = load_predictions(rev=selected_fst_rev["commit"])
-snd_predictions = load_predictions(rev=selected_snd_rev["commit"])
+    snd_predictions = load_predictions(rev=selected_snd_rev["commit"])
+    snd_accuracy = (snd_predictions.true_label == snd_predictions.predicted_label).mean()
+
+    st.metric(label="Accuracy", value=f"{100 * snd_accuracy:.2f}%")
 
 merged_predictions = pd.merge(
     left=fst_predictions,
