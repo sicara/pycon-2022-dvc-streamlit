@@ -28,7 +28,7 @@ with col_b:
     st.code("dvc exp run dvc.yaml --set-params train.seed=1234", language="bash")
     st.markdown(
         """
-1. edit the `parameters.yaml` file accordingly to the `-set-params` options
+1. edit the `params.yaml` file accordingly to the `-set-params` options
 2. run the `dvc.yaml` pipeline just like `dvc repro`
 3. create a commit and track it with a git custom reference
 

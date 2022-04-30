@@ -10,7 +10,7 @@ with col_a:
         """
 - modify data, script just like before
 - modify the pipeline: `dvc.yaml`
-- modify the parameters: `parameters.yaml`
+- modify the parameters: `params.yaml`
 """
     )
     st.write("### 😀")
