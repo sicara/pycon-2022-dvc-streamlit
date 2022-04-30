@@ -10,7 +10,7 @@ BIG_TITLE_STYLE = CSSStyle(
     text_align="center",
     font_size="58px",
     line_height="58px",
-    margin="40px 0px 40px 0px",
+    margin="15px 0px 45px 0px",
     font_weight=700,
 )
 BIG_TITLE_DIV = make_div(style=BIG_TITLE_STYLE)

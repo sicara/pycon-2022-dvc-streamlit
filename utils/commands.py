@@ -34,6 +34,7 @@ def st_command(label: Optional[str] = None, initial_command: Optional[str] = Non
                             border_left="20px solid #32a854",
                             border_radius="10px",
                             padding_left="5px",
+                            font_family="monospace",
                         ),
                     )
                 )

@@ -34,8 +34,6 @@ if uploaded_file:
         axis=0
     )
 
-    predictions = []
-
     prediction = tf.nn.sigmoid(model.predict(input).flatten()).numpy()[0]
     st.write(f"Prediction: {prediction}")
 

@@ -40,7 +40,7 @@ with col_c:
 
 more_cats_and_dogs_clicked = st.button("Get cats and dogs !")
 
-N_CATS_AND_DOGS = 8
+N_CATS_AND_DOGS = 2
 col_dogs, col_cats = st.columns(2)
 
 with col_cats:

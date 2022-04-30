@@ -28,4 +28,4 @@ rm cats_and_dogs_filtered.zip
     st_write_code_from_file(code_filepath=PARAMS_PATH, language="yaml", expanded=False)
 
 with pipeline_col:
-    st_write_bs4(make_img(src=IMAGES_DIR / "training-pipeline.svg", style=CSSStyle(position="fixed", width="27%")))
+    st_write_bs4(make_img(src=IMAGES_DIR / "training-pipeline.svg", style=CSSStyle(position="fixed", width="25%")))
