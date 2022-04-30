@@ -72,48 +72,50 @@ callbacks = [
 ]
 
 
-#%% Freeze the base model and train 10 epochs
-base_model.trainable = False
+#%% Freeze the base model and train EPOCHS_FROZEN epochs
+if EPOCHS_FROZEN > 0:
+    base_model.trainable = False
 
-model.compile(
-    optimizer=tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE),
-    loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-    metrics=["accuracy"],
-)
-model.summary()
+    model.compile(
+        optimizer=tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE),
+        loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
+        metrics=["accuracy"],
+    )
+    model.summary()
 
-history = model.fit(
-    train_dataset,
-    epochs=EPOCHS_FROZEN,
-    validation_data=validation_dataset,
-    callbacks=callbacks,
-)
+    history = model.fit(
+        train_dataset,
+        epochs=EPOCHS_FROZEN,
+        validation_data=validation_dataset,
+        callbacks=callbacks,
+    )
 
 
-#%% Unfreeze the base model
-base_model.trainable = True
+if EPOCHS_UNFROZEN:
+    #%% Unfreeze the base model
+    base_model.trainable = True
 
-# Let's take a look to see how many layers are in the base model
-print("Number of layers in the base model: ", len(base_model.layers))
+    # Let's take a look to see how many layers are in the base model
+    print("Number of layers in the base model: ", len(base_model.layers))
 
-# Freeze all the layers before the `FINE_TUNE_AT` layer
-for layer in base_model.layers[:FINE_TUNE_AT]:
-    layer.trainable = False
+    # Freeze all the layers before the `FINE_TUNE_AT` layer
+    for layer in base_model.layers[:FINE_TUNE_AT]:
+        layer.trainable = False
 
-model.compile(
-    loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
-    optimizer=tf.keras.optimizers.RMSprop(lr=LEARNING_RATE / 10),
-    metrics=["accuracy"],
-)
-model.summary()
+    model.compile(
+        loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
+        optimizer=tf.keras.optimizers.RMSprop(lr=LEARNING_RATE / 10),
+        metrics=["accuracy"],
+    )
+    model.summary()
 
-history_fine = model.fit(
-    train_dataset,
-    epochs=EPOCHS_FROZEN + EPOCHS_UNFROZEN,
-    initial_epoch=EPOCHS_FROZEN,
-    validation_data=validation_dataset,
-    callbacks=callbacks,
-)
+    history_fine = model.fit(
+        train_dataset,
+        epochs=EPOCHS_FROZEN + EPOCHS_UNFROZEN,
+        initial_epoch=EPOCHS_FROZEN,
+        validation_data=validation_dataset,
+        callbacks=callbacks,
+    )
 
 
 #%% Load best weights and save model
