@@ -58,8 +58,8 @@ stages:
       size: 16230853
       nfiles: 706
     - path: scripts/train.py
-      md5: cb43505107166a1c5f2e6f6dd0ffd991
-      size: 3165
+      md5: 1b7ea8cd0e09169a0fd283b860e8bbc4
+      size: 3350
     params:
       params.yaml:
         model:
@@ -71,27 +71,27 @@ stages:
           - 160
           - 160
           learning_rate: 0.0001
-          seed: 1234
+          seed: 1987
           subdir: train
           epochs:
-            frozen: 1
-            unfrozen: 1
+            frozen: 0
+            unfrozen: 3
           fine_tune_at: 100
     outs:
     - path: ./data/train/best_weights.h5
-      md5: 7063c1780112e7268dd96e0abb0af45a
+      md5: c7fb0af4970f8e0d66f29fe2884cd580
       size: 16919992
     - path: ./data/train/model
-      md5: 06228c2604b33afb053be1a0ed040860.dir
+      md5: cdb1c05788902328785b3858d56ea728.dir
       size: 20575001
       nfiles: 4
     - path: ./data/train/tensorboard
-      md5: 944b52474e8377445128cf7c8d1dc1db.dir
-      size: 1295557
-      nfiles: 4
+      md5: 6de9926f1244b1edc4e1a727609053f6.dir
+      size: 779795
+      nfiles: 2
     - path: logs/train.out
-      md5: 2caad7a2873846bc134a7a99c30a99da
-      size: 25719
+      md5: 7f87188d13867786d60e5caa53ce4cca
+      size: 34678
   evaluate:
     cmd: python scripts/evaluate.py &> logs/evaluate.out
     deps:
@@ -100,7 +100,7 @@ stages:
       size: 6711947
       nfiles: 294
     - path: ./data/train/model
-      md5: 06228c2604b33afb053be1a0ed040860.dir
+      md5: cdb1c05788902328785b3858d56ea728.dir
       size: 20575001
       nfiles: 4
     - path: scripts/evaluate.py
@@ -111,8 +111,8 @@ stages:
       md5: 9cac177b71c1efe786480cfb1eec6e4a
       size: 56
     - path: ./data/evaluation/predictions.csv
-      md5: cec735065c00a0eeabbafa2a2edde230
-      size: 36524
+      md5: 8536f02882355bd005b6eca18f0df25a
+      size: 44315
     - path: logs/evaluate.out
-      md5: ded91ea297b98ffe56342f11d0b7827e
-      size: 474
+      md5: 2e4fb83b9c48b5287d26d3dbb6eeedd4
+      size: 500
