@@ -15,10 +15,10 @@ train:
   batch_size: 32
   img_size: [160, 160]
   learning_rate: 0.0001
-  seed: 1234
+  seed: 42
   subdir: train
   epochs:
-    frozen: 1
+    frozen: 2
     unfrozen: 1
   fine_tune_at: 100
 
