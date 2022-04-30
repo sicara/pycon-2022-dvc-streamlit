@@ -26,8 +26,8 @@ DVC_REPO = dvc.repo.Repo(ROOT_DIR)
 
 st.write("2️⃣ Retrieve experiments parent commits:")
 
-st.code("experiment_commits = DVC_REPO.experiments.ls(all_=True)", language="python")
-experiment_commits = DVC_REPO.experiments.ls(all_=True)
+st.code("experiment_commits = DVC_REPO.experiments.ls(all_commits=True)", language="python")
+experiment_commits = DVC_REPO.experiments.ls(all_commits=True)
 st.write(experiment_commits)
 
 st.write("3️⃣ Retrieve experiments metadata:")

@@ -54,7 +54,7 @@ selected_rev = st.selectbox(
 
 DVC_REPO = dvc.repo.Repo(".")
 
-experiment_commits = DVC_REPO.experiments.ls(all_=True)
+experiment_commits = DVC_REPO.experiments.ls(all_commits=True)
 experiments_metadata = DVC_REPO.experiments.show(revs=list(experiment_commits))
 
 experiments_options = [

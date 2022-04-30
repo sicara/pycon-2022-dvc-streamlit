@@ -9,7 +9,7 @@ from constants import ROOT_DIR
 
 DVC_REPO = dvc.repo.Repo(ROOT_DIR)
 
-experiment_commits = DVC_REPO.experiments.ls(all_=True)
+experiment_commits = DVC_REPO.experiments.ls(all_commits=True)
 experiments_metadata = DVC_REPO.experiments.show(revs=list(experiment_commits))
 
 experiments_dict = [
