@@ -17,7 +17,7 @@ def load_predictions(rev: str) -> pd.DataFrame:
 
     EVALUATION_DIR = CODE_DIR / "data" / "evaluation"
 
-    with dvc.api.open(EVALUATION_DIR / "predictions.csv", rev=rev) as file:
+    with dvc.api.open(str(EVALUATION_DIR / "predictions.csv"), rev=rev) as file:
         return pd.read_csv(file)
 
 
